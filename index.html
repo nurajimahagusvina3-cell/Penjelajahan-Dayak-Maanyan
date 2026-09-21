@@ -87,6 +87,29 @@
             text-decoration: underline;
         }
 
+        /* Room Cerita Utuh */
+        .story-room-card {
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .story-room-card h2 { color: var(--primary); margin-top: 0; text-align: center; }
+        .story-scroll-box {
+            max-height: 450px;
+            overflow-y: auto;
+            background: #fffdf5;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .story-scroll-box h4 { color: var(--secondary); margin-top: 15px; margin-bottom: 5px; }
+
         .map-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -117,13 +140,13 @@
         .arena-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
         .back-btn { background: #6c757d; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
         
-        /* Desain Kotak Cerita Diperbesar & Lebih Jelas */
+        /* Desain Kotak Cerita di Soal dengan Font 20px */
         .story-snippet {
             background: #fffdf5;
             border-left: 6px solid var(--accent);
             padding: 20px;
             margin-bottom: 25px;
-            font-size: 1.1rem;
+            font-size: 20px;
             line-height: 1.8;
             color: #333;
             border-radius: 4px 8px 8px 4px;
@@ -131,18 +154,18 @@
         }
         .story-snippet strong {
             color: var(--primary);
-            font-size: 1.15rem;
+            font-size: 22px;
             display: block;
             margin-bottom: 8px;
         }
 
-        .question-box { font-size: 1.1rem; font-weight: 600; line-height: 1.6; margin-bottom: 20px; color: var(--dark); }
+        .question-box { font-size: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 20px; color: var(--dark); }
         .options-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-        .option-btn { background: #f8f9fa; border: 2px solid #cbd5e0; padding: 14px 18px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 1rem; transition: all 0.2s; }
+        .option-btn { background: #f8f9fa; border: 2px solid #cbd5e0; padding: 14px 18px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 18px; transition: all 0.2s; }
         .option-btn:hover { background: #e2e8f0; border-color: var(--secondary); }
         .option-btn.correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
         .option-btn.wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-        #feedback-msg { font-weight: bold; font-size: 1.05rem; margin-bottom: 15px; min-height: 24px; }
+        #feedback-msg { font-weight: bold; font-size: 19px; margin-bottom: 15px; min-height: 24px; }
 
         .admin-panel { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
@@ -164,7 +187,7 @@
     </header>
 
     <div class="container">
-        <!-- 1. ROOM UTAMA -->
+        <!-- 1. ROOM UTAMA (LOGIN) -->
         <div id="view-login" class="view-section active">
             <div class="login-card">
                 <h2>Room Utama Penjelajah</h2>
@@ -178,13 +201,43 @@
                         <label for="student-class">Kelas</label>
                         <input type="text" id="student-class" placeholder="Contoh: X-A" required>
                     </div>
-                    <button type="submit" class="btn">Masuk ke Peta Wilayah</button>
+                    <button type="submit" class="btn">Masuk & Baca Mite Puteri Mayang</button>
                 </form>
                 <button class="admin-link-btn" onclick="openAdminPanel()">🔒 Masuk sebagai Admin / Guru</button>
             </div>
         </div>
 
-        <!-- 2. PETA LEVEL -->
+        <!-- 2. ROOM CERITA MITE PUTERI MAYANG (SETELAH LOGIN) -->
+        <div id="view-story-room" class="view-section">
+            <div class="story-room-card">
+                <h2>📖 Mite Puteri Mayang</h2>
+                <p style="text-align: center; color: #666; font-size: 0.95rem; margin-bottom: 20px;">Silakan baca dan pahami kisah kearifan lokal berikut sebelum menjelajahi peta wilayah petualangan.</p>
+                
+                <div class="story-scroll-box">
+                    <h4>Bagian I: Asal Usul & Banua Lawas</h4>
+                    <p>Dikisahkan pada masa lampau, masyarakat Ma'anyan sering berpindah-pindah untuk mencari tempat tinggal berdasarkan kriteria kekayaan alam seperti sungai yang kaya ikan, pohon berbuah, dan sayuran hutan[cite: 17]. Mereka sampailah di Banua Lawas di bawah kekuasaan Raja Banjar dan mendirikan Baluntang sebagai tanda keberadaan mereka[cite: 17]. Seiring waktu berbaur dengan masyarakat Banjar, persoalan jarak dan aturan ibadah di masjid membuat sebagian kelompok Ma'anyan berencana mencari tempat tinggal baru[cite: 17].</p>
+                    
+                    <h4>Bagian II: Lantingen, Lubuk Kajang, & Sangarasi</h4>
+                    <p>Setelah sempat tinggal di Lantingen dan menghadapi gangguan ular besar, rombongan seperti Risak dan Biuku menyusuri sungai hingga ke Lubuk Kajang dan menemukan banyak udang[cite: 17]. Saat membersihkan hutan di sekitar sana, parang mereka bersinggungan dengan besi besar berbentuk petir yang mengeluarkan bunyi nyaring, sehingga daerah itu dinamakan <strong>Sangarasi</strong>[cite: 17]. Di sinilah lahir dua tokoh bersaudara sakti titisan Alah Mula Munta, yaitu Uria Mapas dan Uria Rinyan[cite: 17].</p>
+
+                    <h4>Bagian III & IV: Konflik di Istana & Tragedi Uria Rinyan</h4>
+                    <p>Uria Rinyan merantau ke istana Raja Mata Habang (Sultan Suriansyah) dan bekerja sebagai pengawal yang sangat cekatan[cite: 17]. Permaisuri Nyai Kemala jatuh cinta kepadanya, yang kemudian memicu kecemburuan Raja[cite: 17]. Raja menjebak Uria Rinyan dan membunuhnya bersama para patih di istana[cite: 17]. Patih Nawaraha yang berhasil mengintip kejadian berdarah tersebut melarikan diri ke hutan dan kembali ke Sangarasi untuk melapor[cite: 17].</p>
+
+                    <h4>Bagian V & VI: Pembalasan & Kehancuran Nagara</h4>
+                    <p>Mendengar berita kematian adiknya, masyarakat Ma'anyan sangat marah[cite: 17]. Uria Mapas memutuskan maju seorang diri untuk membalas dendam menggunakan tombak Lansar Tewo Mea dan alu tawudien[cite: 17]. Sesampainya di suatu tempat karena salah jalur sungai, ia menghancurkan dapur dan barang dagangan warga setempat hingga mereka menangis histeris, yang ternyata tempat itu bernama <strong>Nagara</strong>, bukanlah istana utama Raja[cite: 17].</p>
+
+                    <h4>Bagian VII & VIII: Perdamaian & Hadirnya Puteri Mayang</h4>
+                    <p>Melalui pesan <em>Putak Bakaka</em>, Raja Mata Habang mengajak berdamai dan bersedia bertanggung jawab serta mengganti rugi[cite: 17]. Dalam pesta perdamaian besar, Uria Mapas meminta anak bungsu Raja dari Permaisuri Nyai Kemala, yaitu <strong>Puteri Mayang Sari</strong>, sebagai tanda perdamaian[cite: 17]. Puteri Mayang diangkat menjadi pemimpin pendamping Uria Mapas di Sangarasi, dicintai rakyat, serta giat memberikan penyuluhan ketahanan pangan dengan menganjurkan menanam padi di daerah berair[cite: 17].</p>
+
+                    <h4>Bagian IX: Akhir Hayat & Berkah Sang Puteri</h4>
+                    <p>Suatu hari Puteri Mayang mencium bunga wangi <em>tungkul kamang kuning</em> yang jatuh dari langit hingga membuatnya jatuh sakit dan wafat pada tahun 1615[cite: 17]. Sebelum disemayamkan, Uria Mapas mengarak jasad Puteri Mayang mengelilingi seluruh wilayah Ma'anyan selama 92 hari, yang membuat setiap daerah yang dilewatinya berubah menjadi sangat subur dan makmur[cite: 17]. Jasadnya kemudian dikuburkan dalam kereta emas, dan Uria Mapas menyusul wafat pada tahun 1628[cite: 17].</p>
+                </div>
+
+                <button class="btn" onclick="goToDashboard()">Lanjutkan ke Peta Wilayah Petualangan →</button>
+            </div>
+        </div>
+
+        <!-- 3. PETA LEVEL -->
         <div id="view-dashboard" class="view-section">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <div>
@@ -198,7 +251,7 @@
             <div class="map-grid" id="map-grid"></div>
         </div>
 
-        <!-- 3. ARENA PERMAINAN -->
+        <!-- 4. ARENA PERMAINAN -->
         <div id="view-arena" class="view-section">
             <div id="game-arena">
                 <div class="arena-top">
@@ -212,7 +265,7 @@
             </div>
         </div>
 
-        <!-- 4. PANEL ADMIN (CLOUD REKAP) -->
+        <!-- 5. PANEL ADMIN (CLOUD REKAP) -->
         <div id="view-admin" class="view-section">
             <div class="admin-panel">
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">
@@ -256,10 +309,10 @@
             {
                 id: 1, title: "Gerbang Maanyan", topic: "Orientasi cerita & konteks budaya", type: "Quiz",
                 desc: "Mengenal asal-usul perpindahan masyarakat Ma'anyan dan kriteria pemilihan tempat tinggal.",
-                story: "Masyarakat Ma'anyan pada masa lampau sering berpindah mencari tempat tinggal baru berdasarkan kriteria sungai yang kaya ikan, pohon berbuah, dan sayuran hutan, hingga sampai di Banua Lawas[cite: 16]. Kekayaan alam pada suatu tempat yang mereka pilih sebagai tempat tinggal dimanfaatkan sepenuhnya untuk kelangsungan hidup dan keharmonisan mereka[cite: 16].",
+                story: "Masyarakat Ma'anyan pada masa lampau sering berpindah mencari tempat tinggal baru berdasarkan kriteria sungai yang kaya ikan, pohon berbuah, dan sayuran hutan, hingga sampai di Banua Lawas[cite: 17]. Kekayaan alam pada suatu tempat yang mereka pilih sebagai tempat tinggal dimanfaatkan sepenuhnya untuk kelangsungan hidup dan keharmonisan mereka[cite: 17].",
                 question: "Apa kriteria utama pertama masyarakat Ma'anyan dalam memilih tempat tinggal baru pada masa lampau?",
                 options: [
-                    "Memiliki sungai yang kaya akan ikan, udang, kerang, dan binatang air[cite: 16]",
+                    "Memiliki sungai yang kaya akan ikan, udang, kerang, dan binatang air[cite: 17]",
                     "Memiliki dataran tinggi yang gersang untuk berternak kuda",
                     "Dekat dengan istana kerajaan besar untuk tempat berdagang kain",
                     "Memiliki tanah berpasir putih untuk membuat kerajinan tembikar"
@@ -269,11 +322,11 @@
             {
                 id: 2, title: "Kenali Ceritanya", topic: "Pengertian & karakteristik teks narasi", type: "Matching",
                 desc: "Memahami struktur dan ciri teks narasi sastra berbasis legenda/mite.",
-                story: "Kisah Mite Puteri Mayang diturunkan secara turun-temurun, memuat unsur tokoh, latar, alur, serta nilai budaya masyarakat pendukungnya[cite: 16]. Di dalamnya tersimpan jejak sejarah, nilai kearifan lokal, serta pesan moral mendalam tentang hubungan manusia dengan alam dan leluhur.",
+                story: "Kisah Mite Puteri Mayang diturunkan secara turun-temurun, memuat unsur tokoh, latar, alur, serta nilai budaya masyarakat pendukungnya[cite: 17]. Di dalamnya tersimpan jejak sejarah, nilai kearifan lokal, serta pesan moral mendalam tentang hubungan manusia dengan alam dan leluhur.",
                 question: "Manakah yang merupakan karakteristik utama dari teks narasi sastra seperti Mite Puteri Mayang?",
                 options: [
                     "Menyajikan data statistik, rumus matematika, dan fakta empiris laboratorium",
-                    "Berisi rangkaian peristiwa kronologis atau kausalitas yang melibatkan tokoh, alur, dan latar cerita[cite: 16]",
+                    "Berisi rangkaian peristiwa kronologis atau kausalitas yang melibatkan tokoh, alur, dan latar cerita[cite: 17]",
                     "Hanya berisi petunjuk langkah-langkah kerja membuat suatu perkakas rumah tangga",
                     "Berisi pendapat persuasif penulis untuk meyakinkan pembaca agar membeli produk"
                 ],
@@ -282,10 +335,10 @@
             {
                 id: 3, title: "Berburu Informasi", topic: "Informasi tersurat & tersirat", type: "Quiz",
                 desc: "Menemukan detail informasi tersurat dan tersirat dalam teks perjalanan tokoh Risak dan Biuku.",
-                story: "Risak dan Biuku bersama rombongan menyusuri sungai hingga sampai di Lubuk Kajang[cite: 16]. Saat sampai di sana, mereka mendapati sesuatu masuk ke dalam kindret mereka hingga susah berjalan, lalu mereka membersihkannya dan melihat puluhan bakul udang sungai yang melimpah[cite: 16].",
+                story: "Risak dan Biuku bersama rombongan menyusuri sungai hingga sampai di Lubuk Kajang[cite: 17]. Saat sampai di sana, mereka mendapati sesuatu masuk ke dalam kindret mereka hingga susah berjalan, lalu mereka membersihkannya dan melihat puluhan bakul udang sungai yang melimpah[cite: 17].",
                 question: "Benda apa yang dibersihkan oleh Risak dan Biuku di pinggiran sungai Lubuk Kajang hingga mereka melihat banyaknya udang?",
                 options: [
-                    "Kindret (cawat/celana dalam terbuat dari kulit kayu)[cite: 16]",
+                    "Kindret (cawat/celana dalam terbuat dari kulit kayu)[cite: 17]",
                     "Perahu kayu ulin tempat mereka mendayung",
                     "Parang tajam untuk menebas rumput hutan",
                     "Keranjang rotan tempat penampungan beras"
@@ -295,27 +348,27 @@
             {
                 id: 4, title: "Bongkar Struktur Cerita", topic: "Struktur narasi", type: "Line Up",
                 desc: "Menganalisis tahapan alur cerita mulai dari orientasi, komplikasi, hingga resolusi.",
-                story: "Struktur teks narasi terbangun secara sistematis dari pengenalan situasi awal, munculnya permasalahan (komplikasi), hingga titik penyelesaian masalah[cite: 16].",
+                story: "Struktur teks narasi terbangun secara sistematis dari pengenalan situasi awal, munculnya permasalahan (komplikasi), hingga titik penyelesaian masalah[cite: 17].",
                 question: "Bagian awal dalam struktur teks narasi yang berisi pengenalan tokoh, latar tempat, dan suasana cerita disebut...",
-                options: ["Resolusi", "Orientasi (Pengenalan)[cite: 16]", "Komplikasi", "Koda"],
+                options: ["Resolusi", "Orientasi (Pengenalan)[cite: 17]", "Komplikasi", "Koda"],
                 correct: 1
             },
             {
                 id: 5, title: "Rahasia Tokoh", topic: "Tokoh & penokohan", type: "Matching",
                 desc: "Menganalisis karakteristik tokoh utama penjelajah dan utusan dewa.",
-                story: "Uria Mapas dan Uria Rinyan adalah dua bersaudara utusan titisan dari Alah Mula Munta yang memiliki kesaktian luar biasa dan paras yang tampan[cite: 16]. Uria Mapas sendiri sebelumnya memiliki nama asli sebagai Damung Lana[cite: 16].",
+                story: "Uria Mapas dan Uria Rinyan adalah dua bersaudara utusan titisan dari Alah Mula Munta yang memiliki kesaktian luar biasa dan paras yang tampan[cite: 17]. Uria Mapas sendiri sebelumnya memiliki nama asli sebagai Damung Lana[cite: 17].",
                 question: "Siapakah nama asli dari tokoh Uria Mapas sebelum ia lebih dikenal dengan sebutan Uria Mapas Negara?",
-                options: ["Damung Lana[cite: 16]", "Patih Nawaraha", "Sultan Suriansyah", "Risak bin Biuku"],
+                options: ["Damung Lana[cite: 17]", "Patih Nawaraha", "Sultan Suriansyah", "Risak bin Biuku"],
                 correct: 0
             },
             {
                 id: 6, title: "Jejak Alur", topic: "Alur & konflik", type: "Line Up",
                 desc: "Menelusuri hubungan sebab-akibat konflik antara Uria Rinyan dan Raja Mata Habang.",
-                story: "Konflik memuncak ketika kecurigaan Raja Mata Habang terhadap permaisuri Nyai Kemala dan Uria Rinyan berujung pada penjebakan serta pembunuhan para patih dan Uria Rinyan[cite: 16]. Peristiwa tragis ini memicu kemarahan besar di kalangan masyarakat Ma'anyan.",
+                story: "Konflik memuncak ketika kecurigaan Raja Mata Habang terhadap permaisuri Nyai Kemala dan Uria Rinyan berujung pada penjebakan serta pembunuhan para patih dan Uria Rinyan[cite: 17]. Peristiwa tragis ini memicu kemarahan besar di kalangan masyarakat Ma'anyan.",
                 question: "Apa peristiwa pemicu utama (komplikasi besar) yang membuat Uria Mapas bertekad melakukan balas dendam ke istana Raja?",
                 options: [
                     "Pencurian hasil panen padi masyarakat Ma'anyan di Sangarasi",
-                    "Pembunuhan adik kesayangannya (Uria Rinyan) dan para patih oleh Raja Mata Habang[cite: 16]",
+                    "Pembunuhan adik kesayangannya (Uria Rinyan) dan para patih oleh Raja Mata Habang[cite: 17]",
                     "Penolakan Raja memberikan wilayah hutan di daerah Patai",
                     "Penculikan Puteri Mayang ke gunung Tungka tanpa izin"
                 ],
@@ -324,11 +377,11 @@
             {
                 id: 7, title: "Peta Dunia Cerita", topic: "Latar & sudut pandang", type: "Map Quiz",
                 desc: "Mengidentifikasi latar tempat autentik dalam kisah seperti Banua Lawas, Lantingen, Sangarasi, dan Nagara.",
-                story: "Perjalanan masyarakat Ma'anyan berpindah dari Banua Lawas, Lantingen, hingga menemukan besi besar berbentuk petir yang dinamakan Sangarasi ketika parang warga bersinggungan dengannya saat membersihkan hutan[cite: 16].",
+                story: "Perjalanan masyarakat Ma'anyan berpindah dari Banua Lawas, Lantingen, hingga menemukan besi besar berbentuk petir yang dinamakan Sangarasi ketika parang warga bersinggungan dengannya saat membersihkan hutan[cite: 17].",
                 question: "Mengapa suatu daerah dinamakan 'Sangarasi' oleh masyarakat Ma'anyan?",
                 options: [
                     "Karena ditemukan banyak pohon sampaka berakar besar",
-                    "Karena parang warga bersinggungan dengan besi besar berbentuk seperti petir (nanyu sangar jatang) saat membersihkan hutan[cite: 16]",
+                    "Karena parang warga bersinggungan dengan besi besar berbentuk seperti petir (nanyu sangar jatang) saat membersihkan hutan[cite: 17]",
                     "Karena daerah tersebut dikelilingi oleh ribuan udang sungai yang melimpah",
                     "Karena tempat tersebut merupakan pusat istana Raja Mata Habang"
                 ],
@@ -337,10 +390,10 @@
             {
                 id: 8, title: "Makna di Balik Cerita", topic: "Tema, amanat & nilai budaya", type: "Quiz",
                 desc: "Menemukan nilai-nilai kearifan lokal, kepemimpinan, dan pelestarian budaya dalam mite.",
-                story: "Puteri Mayang Sari hidup di Sangarasi, memimpin rakyat dengan dekat, penuh kasih, serta memberikan penyuluhan pertanian dengan menganjurkan penduduk menanam padi di daerah berair demi memperkuat ketahanan pangan[cite: 16].",
+                story: "Puteri Mayang Sari hidup di Sangarasi, memimpin rakyat dengan dekat, penuh kasih, serta memberikan penyuluhan pertanian dengan menganjurkan penduduk menanam padi di daerah berair demi memperkuat ketahanan pangan[cite: 17].",
                 question: "Nilai kearifan lokal apa yang tercermin dari kepemimpinan Puteri Mayang bersama Uria Mapas di Sangarasi?",
                 options: [
-                    "Kepemimpinan yang dekat dengan rakyat, mengutamakan kesejahteraan, dan memperkuat ketahanan pangan[cite: 16]",
+                    "Kepemimpinan yang dekat dengan rakyat, mengutamakan kesejahteraan, dan memperkuat ketahanan pangan[cite: 17]",
                     "Sikap tertutup dari dunia luar dan melarang adanya perdagangan dengan suku lain",
                     "Pemisahan mutlak antara kaum bangsawan dan rakyat kecil di pedesaan",
                     "Pengabaian terhadap tradisi leluhur demi mengejar modernisasi kota"
@@ -350,11 +403,11 @@
             {
                 id: 9, title: "Bahasa Sang Pencerita", topic: "Unsur kebahasaan narasi", type: "Fill in the Blanks",
                 desc: "Menganalisis penggunaan kaidah kebahasaan, konjungsi kronologis, dan kosakata lokal dalam teks.",
-                story: "Dalam teks narasi sejarah atau legenda, sering ditemukan kata-kata yang menyatakan urutan waktu atau kejadian masa lampau untuk merangkai alur cerita[cite: 16].",
+                story: "Dalam teks narasi sejarah atau legenda, sering ditemukan kata-kata yang menyatakan urutan waktu atau kejadian masa lampau untuk merangkai alur cerita[cite: 17].",
                 question: "Manakah kelompok kata yang termasuk konjungsi antarkalimat penanda urutan waktu (kronologis) dalam teks narasi?",
                 options: [
                     "Sangat, amat, lebih, paling",
-                    "Suatu ketika, keesokan harinya, selang beberapa waktu, kemudian[cite: 16]",
+                    "Suatu ketika, keesokan harinya, selang beberapa waktu, kemudian[cite: 17]",
                     "Karena, sebab, oleh karena itu, akibatnya",
                     "Dan, serta, atau, tetapi"
                 ],
@@ -363,10 +416,10 @@
             {
                 id: 10, title: "Final Challenge", topic: "Analisis cerita secara utuh", type: "Quiz",
                 desc: "Ujian akhir penjelajahan literasi: merefleksikan keseluruhan isi Mite Puteri Mayang dan pelestarian budaya.",
-                story: "Kisah diakhiri dengan wafatnya Puteri Mayang pada tahun 1615 dan Uria Mapas pada tahun 1628, di mana jasad Puteri Mayang diarak mengelilingi wilayah Ma'anyan selama 92 hari yang membawa kesuburan tanah dan kemakmuran bagi rakyat[cite: 16].",
+                story: "Kisah diakhiri dengan wafatnya Puteri Mayang pada tahun 1615 dan Uria Mapas pada tahun 1628, di mana jasad Puteri Mayang diarak mengelilingi wilayah Ma'anyan selama 92 hari yang membawa kesuburan tanah dan kemakmuran bagi rakyat[cite: 17].",
                 question: "Apa makna simbolis dari prosesi jasad Puteri Mayang yang dibawa mengelilingi wilayah suku Ma'anyan selama 92 hari?",
                 options: [
-                    "Simbol kesuburan, kemakmuran, dan ikatan batin yang membawa berkah serta kesejahteraan bagi tanah dan rakyat Ma'anyan[cite: 16]",
+                    "Simbol kesuburan, kemakmuran, dan ikatan batin yang membawa berkah serta kesejahteraan bagi tanah dan rakyat Ma'anyan[cite: 17]",
                     "Bentuk hukuman adat atas pelanggaran sumpah setia kepada kerajaan Banjar",
                     "Syarat administratif pertanahan yang ditetapkan oleh para patih kerajaan",
                     "Upacara pengusiran roh jahat akibat wabah penyakit menular di desa"
@@ -388,12 +441,17 @@
             currentUser.name = document.getElementById('student-name').value.trim();
             currentUser.className = document.getElementById('student-class').value.trim();
             currentUser.progress = 1;
-            currentUser.status = "Sedang Berproses";
+            currentUser.status = "Sedang Membaca Cerita";
 
             document.getElementById('welcome-user-banner').innerText = `Selamat Datang, ${currentUser.name}!`;
             document.getElementById('badge-user-info').innerText = `Kelas: ${currentUser.className}`;
 
             syncDataToCloud();
+            // Masuk ke room baca cerita terlebih dahulu setelah login
+            switchView('view-story-room');
+        }
+
+        function goToDashboard() {
             renderMap();
             switchView('view-dashboard');
         }
@@ -460,7 +518,7 @@
                 </div>
                 <div class="options-container" id="options-box"></div>
                 <div id="feedback-msg"></div>
-                <button id="next-btn" class="btn" style="display:none; width:100%; margin-top: 15px;" onclick="nextLevel(${lvl.id})">Lanjut ke Wilayah Berikutnya →</button>
+                <button id="next-btn" class="btn" style="display:none; width:100%; margin-top: 15px; font-size:18px;" onclick="nextLevel(${lvl.id})">Lanjut ke Wilayah Berikutnya →</button>
             `;
 
             const optionsBox = document.getElementById('options-box');
@@ -495,6 +553,8 @@
                 }
                 if (currentUser.progress === levels.length && levelId === levels.length) {
                     currentUser.status = "Tuntas (Selesai)";
+                } else {
+                    currentUser.status = `Aktif di Level ${currentUser.progress}`;
                 }
                 syncDataToCloud();
                 nextBtn.style.display = 'block';
