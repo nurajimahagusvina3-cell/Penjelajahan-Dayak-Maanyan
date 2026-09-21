@@ -53,32 +53,9 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            max-width: 480px;
+            max-width: 450px;
             margin: 40px auto;
             text-align: center;
-        }
-
-        /* Tampilan Gambar Logo Asli di Halaman Login */
-        .login-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f1f5f9;
-        }
-
-        .login-logos img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-            border-radius: 4px;
-            background: #ffffff;
-            padding: 2px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .login-card h2 { color: var(--primary); margin-top: 0; }
@@ -110,35 +87,6 @@
             text-decoration: underline;
         }
 
-        /* Room Cerita (Konteks Lebih Besar) */
-        .story-container {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .story-container h2 {
-            color: var(--primary);
-            text-align: center;
-            margin-top: 0;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .story-body {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-            max-height: 450px;
-            overflow-y: auto;
-            padding-right: 15px;
-            margin-bottom: 25px;
-            border-left: 5px solid var(--accent);
-            padding-left: 20px;
-            background: #fffdf9;
-        }
-
         .map-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -168,14 +116,33 @@
         #game-arena { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .arena-top { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
         .back-btn { background: #6c757d; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
-        .question-box { font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; }
-        .options-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-        .option-btn { background: #f8f9fa; border: 2px solid #cbd5e0; padding: 12px 15px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; }
+        
+        /* Desain Kotak Cerita Diperbesar & Lebih Jelas */
+        .story-snippet {
+            background: #fffdf5;
+            border-left: 6px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            border-radius: 4px 8px 8px 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .story-snippet strong {
+            color: var(--primary);
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .question-box { font-size: 1.1rem; font-weight: 600; line-height: 1.6; margin-bottom: 20px; color: var(--dark); }
+        .options-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .option-btn { background: #f8f9fa; border: 2px solid #cbd5e0; padding: 14px 18px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 1rem; transition: all 0.2s; }
         .option-btn:hover { background: #e2e8f0; border-color: var(--secondary); }
         .option-btn.correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
         .option-btn.wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-        #feedback-msg { font-weight: bold; margin-bottom: 15px; min-height: 24px; }
-        .story-snippet { background: #fffdf5; border-left: 4px solid var(--accent); padding: 12px; margin-bottom: 15px; font-size: 0.9rem; font-style: italic; }
+        #feedback-msg { font-weight: bold; font-size: 1.05rem; margin-bottom: 15px; min-height: 24px; }
 
         .admin-panel { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
@@ -197,401 +164,413 @@
     </header>
 
     <div class="container">
-        <!-- 1. ROOM UTAMA (LOGIN) -->
+        <!-- 1. ROOM UTAMA -->
         <div id="view-login" class="view-section active">
             <div class="login-card">
-                <!-- Logo-logo Instansi dalam Format Gambar Asli -->
-                <div class="login-logos">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='%238B4513' stroke-width='2'><circle cx='12' cy='12' r='10'/></svg>" alt="Logo 1">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='none' stroke='%232E8B57' stroke-width='2'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" alt="Logo 2">
-                </div>
-                <h2>Masuk Petualangan</h2>
-                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">Masukkan nama untuk memulai perjalanan budaya Anda.</p>
-                <div class="form-group">
-                    <label for="username">Nama Pengguna / Siswa:</label>
-                    <input type="text" id="username" placeholder="Contoh: Budi Santoso">
-                </div>
-                <button class="btn" onclick="handleLogin()">Mulai Petualangan</button>
-                <br>
-                <button class="admin-link-btn" onclick="showAdminLogin()">Masuk sebagai Guru / Admin</button>
+                <h2>Room Utama Penjelajah</h2>
+                <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">Masukkan identitas Anda untuk mulai tersinkronisasi dengan sistem guru.</p>
+                <form id="user-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="student-name">Nama Lengkap</label>
+                        <input type="text" id="student-name" placeholder="Contoh: Budi Santoso" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-class">Kelas</label>
+                        <input type="text" id="student-class" placeholder="Contoh: X-A" required>
+                    </div>
+                    <button type="submit" class="btn">Masuk ke Peta Wilayah</button>
+                </form>
+                <button class="admin-link-btn" onclick="openAdminPanel()">🔒 Masuk sebagai Admin / Guru</button>
             </div>
         </div>
 
-        <!-- 2. ROOM CERITA / MITE PUTERI MAYANG (SESUDAH LOGIN, SEBELUM MAP/SOAL) -->
-        <div id="view-story" class="view-section">
-            <div class="story-container">
-                <h2>Mite Puteri Mayang</h2>
-                <div class="story-body" id="main-story-text">
-                    <p><b>Bagian I:</b> Dikisahkan pada masa lampau, masyarakat Ma'anyan sering berpindah-pindah untuk mencari tempat tinggal. Tempat tinggal yang dipilih tersebut didasarkan pada beberapa kriteria, seperti memiliki sungai yang kaya akan ikan, udang, kerang, serta tumbuhan dan sayuran hutan yang bisa dikonsumsi untuk kelangsungan hidup[cite: 16].</p>
-                    <p>Suatu ketika, sekelompok masyarakat Ma'anyan menjelajahi hutan dan sampai di daerah Banua Lawas di bawah kekuasaan Raja Banjar. Di sana mereka mendirikan Baluntang (patung kayu bermagis) sebagai simbol perlindungan dan penghormatan kepada Alah Mula Munta (Dewa yang diyakini)[cite: 16]. Seiring berjalannya waktu, sebagian masyarakat Ma'anyan masuk Islam namun sering mengalami kendala jarak dan aturan pakaian di masjid Banua Lawas, yang membuat mereka merencanakan kepindahan untuk mencari permukiman baru[cite: 16].</p>
-                    <p><b>Bagian II hingga III:</b> Perjalanan berlanjut ke daerah Lantingen, Sangarasi (ditemukan setelah parang membentur besi berbentuk petir / nanyu sangar jatang), hingga melahirkan tokoh-tokoh penting seperti Uria Mapas dan Uria Rinyan[cite: 16]. Uria Rinyan yang mengabdi di istana Raja Mata Habang (Sultan Suriansyah) menarik perhatian Permaisuri Nyai Kemala, yang berujung pada kecurigaan dan intrik politik kerajaan[cite: 16].</p>
-                    <p><b>Bagian IV hingga VI:</b> Akibat fitnah dan konflik perselingkuhan rekaan tersebut, Uria Rinyan dibunuh secara keji oleh Raja di dalam istana[cite: 16]. Patih Nawaraha yang sempat mengintip berhasil meloloskan diri dan melaporkan kejadian tragis ini kepada Uria Mapas dan warga Sangarasi[cite: 16]. Dipenuhi rasa duka mendalam dan amarah, Uria Mapas memutuskan berangkat sendirian untuk membalas dendam ke istana Raja, membawa senjata tombak Lansar Tewu Mea dan alu tawudien[cite: 16]. Di tengah perjalanan, ia sempat mengamuk di daerah Nagara karena mengiranya sebagai wilayah istana Raja Mata Habang[cite: 16].</p>
-                    <p><b>Bagian VII hingga IX:</b> Setelah ketegangan mereda, diadakan perjanjian damai besar-besaran antara Raja Mata Habang dan masyarakat Ma'anyan Sangarasi[cite: 16]. Sebagai simbol perdamaian dan ganti rugi, Puteri Mayang Sari (anak bungsu Raja dari Permaisuri Nyai Kemala) diserahkan kepada Uria Mapas dan dibawa ke Sangarasi[cite: 16]. Puteri Mayang hidup bersama Uria Mapas, diangkat menjadi pemimpin yang sangat dicintai rakyat karena kebijaksanaannya dalam menjaga ketahanan pangan dan kesejahteraan[cite: 16]. Pada tahun 1615, setelah mencium bunga wangi misterius *tungkul kamang kuning*, Puteri Mayang jatuh sakit hingga wafat[cite: 16]. Jasadnya diarak mengelilingi wilayah Ma'anyan selama 92 hari—membuat tanah menjadi sangat subur—sebelum akhirnya dimakamkan dengan penghormatan tertinggi di dalam kereta emas[cite: 16].</p>
+        <!-- 2. PETA LEVEL -->
+        <div id="view-dashboard" class="view-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div>
+                    <h3 id="welcome-user-banner" style="margin:0; color:var(--primary);">Selamat Datang, Penjelajah!</h3>
+                    <span id="badge-user-info" style="font-size: 0.85rem; color: #555;"></span>
+                    <div id="sync-status">Status Cloud: Terhubung</div>
                 </div>
-                <button class="btn" onclick="proceedToMap()">Lanjut ke Peta Petualangan &rarr;</button>
+                <button class="back-btn" onclick="logoutToLogin()">Keluar / Ganti Akun</button>
             </div>
+            <p style="font-size: 0.9rem; color: #555;">Selesaikan tantangan dari setiap wilayah untuk membuka level berikutnya!</p>
+            <div class="map-grid" id="map-grid"></div>
         </div>
 
-        <!-- 3. ROOM PETA LEVEL (MAP) -->
-        <div id="view-map" class="view-section">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2 style="color: var(--primary); margin: 0;">Peta Perjalanan Budaya</h2>
-                <span id="player-greeting" style="font-weight: bold; color: var(--secondary);"></span>
-            </div>
-            <div class="map-grid" id="map-grid-container">
-                <!-- Level-level akan dirender otomatis via JS -->
-            </div>
-        </div>
-
-        <!-- 4. ROOM ARENA PERTANYAAN (GAME) -->
-        <div id="view-game" class="view-section">
+        <!-- 3. ARENA PERMAINAN -->
+        <div id="view-arena" class="view-section">
             <div id="game-arena">
                 <div class="arena-top">
-                    <button class="back-btn" onclick="backToMap()">← Kembali ke Peta</button>
-                    <span id="level-indicator" style="font-weight: bold; color: var(--primary);">Level 1</span>
+                    <div>
+                        <span id="arena-level-badge" class="level-badge" style="background:var(--secondary); color:white;">Level 1</span>
+                        <h3 id="arena-title" style="margin:5px 0 0; color:var(--primary);">Judul Level</h3>
+                    </div>
+                    <button class="back-btn" onclick="returnToDashboard()">← Kembali ke Peta</button>
                 </div>
-                <div class="story-snippet" id="story-snippet-box">
-                    Memuat cuplikan cerita kearifan lokal Dayak Maanyan...
-                </div>
-                <div class="question-box" id="question-text">
-                    Memuat pertanyaan...
-                </div>
-                <div class="options-container" id="options-box">
-                    <!-- Pilihan ganda -->
-                </div>
-                <div id="feedback-msg"></div>
-                <button class="btn" id="next-question-btn" style="display:none;" onclick="nextQuestion()">Lanjut Pertanyaan Berikutnya</button>
+                <div id="arena-content"></div>
             </div>
         </div>
 
-        <!-- 5. ROOM ADMIN / GURU -->
+        <!-- 4. PANEL ADMIN (CLOUD REKAP) -->
         <div id="view-admin" class="view-section">
             <div class="admin-panel">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h2 style="color: var(--primary); margin: 0;">Panel Guru / Admin</h2>
-                    <button class="back-btn" onclick="backToLogin()">Keluar</button>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">
+                    <h2 style="margin:0; color:var(--primary);">Dashboard Rekap Cloud Keseluruhan Siswa</h2>
+                    <button class="back-btn" onclick="logoutToLogin()">Keluar Admin</button>
                 </div>
-                <p style="font-size: 0.9rem; color: #666;">Pantau progres dan skor siswa yang telah menyelesaikan misi petualangan.</p>
+                <p style="font-size: 0.9rem; color: #555;">Data di bawah ini merangkum seluruh pengerjaan siswa dari berbagai perangkat yang masuk ke Google Spreadsheet.</p>
+                
                 <div class="toolbar">
-                    <button class="btn" style="width: auto;" onclick="exportData()">Ekspor Data (CSV)</button>
-                    <button class="btn" style="width: auto; background: #dc3545;" onclick="resetData()">Reset Data Siswa</button>
+                    <button class="btn" style="width: auto;" onclick="fetchAdminData()">🔄 Muat Ulang Data Terbaru</button>
                 </div>
-                <div id="sync-status">Status sinkronisasi lokal aktif.</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Siswa</th>
-                            <th>Level Selesai</th>
-                            <th>Skor Total</th>
-                            <th>Waktu Selesai</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboard-body">
-                        <tr>
-                            <td colspan="5" style="text-align: center; color: #888;">Belum ada data siswa.</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Waktu Kirim</th>
+                                <th>Nama Peserta</th>
+                                <th>Kelas</th>
+                                <th>Progres Tertinggi</th>
+                                <th>Status Pengerjaan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-table-body">
+                            <tr><td colspan="5" style="text-align:center; color:#777;">Memuat data dari cloud...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 Petualangan Dayak Maanyan — Media Pembelajaran Berbasis Kearifan Lokal
+        Media Pembelajaran Bahasa Indonesia Kelas X SMA/MA &copy; 2026 | Berbasis Kearifan Lokal Dayak Maanyan
     </footer>
 
     <script>
-        // Data Level dan Cerita Kearifan Lokal Dayak Maanyan
-        const levelsData = [
+        const API_URL = "https://script.google.com/macros/s/AKfycbwrhRmFhDLB2fk1COr_89fp2KqY0EgDR06JywtAuH21eCwsM7bPzk-rPvkrmpxQvjji/exec";
+
+        const levels = [
             {
-                id: 1,
-                title: "Asal Usul & Nansuk",
-                badge: "Filosofi Dasar",
-                desc: "Mempelajari nilai dasar kehidupan dan sejarah leluhur masyarakat Dayak Maanyan.",
-                story: "Masyarakat Dayak Maanyan menjunjung tinggi tatanan hidup selaras dengan alam leluhur yang diwariskan turun-temurun...",
-                questions: [
-                    {
-                        q: "Apa makna utama dari konsep pelestarian alam dalam tradisi Dayak Maanyan?",
-                        options: [
-                            "Menjaga keseimbangan antara manusia dan alam (Tuhan, Leluhur, dan Lingkungan)",
-                            "Hanya untuk kepentingan komersial hutan",
-                            "Membuka lahan seluas-luasnya tanpa batas",
-                            "Menghindari modernisasi total"
-                        ],
-                        answer: 0
-                    },
-                    {
-                        q: "Sikap apa yang harus ditunjukkan ketika mengelola tanah menurut kearifan lokal Maanyan?",
-                        options: [
-                            "Serakah dan eksploitatif",
-                            "Bijaksana, meminta izin/doa, serta tidak merusak secara berlebihan",
-                            "Membiarkan lahan terbengkalai",
-                            "Mengabaikan hukum adat"
-                        ],
-                        answer: 1
-                    }
-                ]
+                id: 1, title: "Gerbang Maanyan", topic: "Orientasi cerita & konteks budaya", type: "Quiz",
+                desc: "Mengenal asal-usul perpindahan masyarakat Ma'anyan dan kriteria pemilihan tempat tinggal.",
+                story: "Masyarakat Ma'anyan pada masa lampau sering berpindah mencari tempat tinggal baru berdasarkan kriteria sungai yang kaya ikan, pohon berbuah, dan sayuran hutan, hingga sampai di Banua Lawas[cite: 16]. Kekayaan alam pada suatu tempat yang mereka pilih sebagai tempat tinggal dimanfaatkan sepenuhnya untuk kelangsungan hidup dan keharmonisan mereka[cite: 16].",
+                question: "Apa kriteria utama pertama masyarakat Ma'anyan dalam memilih tempat tinggal baru pada masa lampau?",
+                options: [
+                    "Memiliki sungai yang kaya akan ikan, udang, kerang, dan binatang air[cite: 16]",
+                    "Memiliki dataran tinggi yang gersang untuk berternak kuda",
+                    "Dekat dengan istana kerajaan besar untuk tempat berdagang kain",
+                    "Memiliki tanah berpasir putih untuk membuat kerajinan tembikar"
+                ],
+                correct: 0
             },
             {
-                id: 2,
-                title: "Hadang & Hukum Adat",
-                badge: "Norma Sosial",
-                desc: "Memahami aturan adat, norma, dan sanksi sosial dalam menjaga keharmonisan kampung.",
-                story: "Hukum adat dan lembaga adat berfungsi sebagai pagar penjaga ketertiban dan kedamaian warga...",
-                questions: [
-                    {
-                        q: "Apa fungsi utama dari hukum adat bagi masyarakat Dayak Maanyan?",
-                        options: [
-                            "Membatasi kreativitas warga",
-                            "Menjaga keharmonisan, kedamaian, dan keseimbangan sosial",
-                            "Alat hukuman yang kejam",
-                            "Formalitas belaka tanpa makna"
-                        ],
-                        answer: 1
-                    }
-                ]
+                id: 2, title: "Kenali Ceritanya", topic: "Pengertian & karakteristik teks narasi", type: "Matching",
+                desc: "Memahami struktur dan ciri teks narasi sastra berbasis legenda/mite.",
+                story: "Kisah Mite Puteri Mayang diturunkan secara turun-temurun, memuat unsur tokoh, latar, alur, serta nilai budaya masyarakat pendukungnya[cite: 16]. Di dalamnya tersimpan jejak sejarah, nilai kearifan lokal, serta pesan moral mendalam tentang hubungan manusia dengan alam dan leluhur.",
+                question: "Manakah yang merupakan karakteristik utama dari teks narasi sastra seperti Mite Puteri Mayang?",
+                options: [
+                    "Menyajikan data statistik, rumus matematika, dan fakta empiris laboratorium",
+                    "Berisi rangkaian peristiwa kronologis atau kausalitas yang melibatkan tokoh, alur, dan latar cerita[cite: 16]",
+                    "Hanya berisi petunjuk langkah-langkah kerja membuat suatu perkakas rumah tangga",
+                    "Berisi pendapat persuasif penulis untuk meyakinkan pembaca agar membeli produk"
+                ],
+                correct: 1
             },
             {
-                id: 3,
-                title: "Wuwung & Tradisi Tani",
-                badge: "Budaya Agraris",
-                desc: "Mengenal sistem pertanian tradisional dan gotong royong (Batang Garing / Hujeh).",
-                story: "Sistem berladang berpindah dan ritual pertanian mencerminkan rasa syukur atas rezeki alam...",
-                questions: [
-                    {
-                        q: "Nilai gotong royong dalam aktivitas pertanian tradisional disebut sebagai bentuk...",
-                        options: [
-                            "Individualisme",
-                            "Kompensasi upah kerja",
-                            "Solidaritas sosial dan kebersamaan warga",
-                            "Paksaan adat"
-                        ],
-                        answer: 2
-                    }
-                ]
+                id: 3, title: "Berburu Informasi", topic: "Informasi tersurat & tersirat", type: "Quiz",
+                desc: "Menemukan detail informasi tersurat dan tersirat dalam teks perjalanan tokoh Risak dan Biuku.",
+                story: "Risak dan Biuku bersama rombongan menyusuri sungai hingga sampai di Lubuk Kajang[cite: 16]. Saat sampai di sana, mereka mendapati sesuatu masuk ke dalam kindret mereka hingga susah berjalan, lalu mereka membersihkannya dan melihat puluhan bakul udang sungai yang melimpah[cite: 16].",
+                question: "Benda apa yang dibersihkan oleh Risak dan Biuku di pinggiran sungai Lubuk Kajang hingga mereka melihat banyaknya udang?",
+                options: [
+                    "Kindret (cawat/celana dalam terbuat dari kulit kayu)[cite: 16]",
+                    "Perahu kayu ulin tempat mereka mendayung",
+                    "Parang tajam untuk menebas rumput hutan",
+                    "Keranjang rotan tempat penampungan beras"
+                ],
+                correct: 0
+            },
+            {
+                id: 4, title: "Bongkar Struktur Cerita", topic: "Struktur narasi", type: "Line Up",
+                desc: "Menganalisis tahapan alur cerita mulai dari orientasi, komplikasi, hingga resolusi.",
+                story: "Struktur teks narasi terbangun secara sistematis dari pengenalan situasi awal, munculnya permasalahan (komplikasi), hingga titik penyelesaian masalah[cite: 16].",
+                question: "Bagian awal dalam struktur teks narasi yang berisi pengenalan tokoh, latar tempat, dan suasana cerita disebut...",
+                options: ["Resolusi", "Orientasi (Pengenalan)[cite: 16]", "Komplikasi", "Koda"],
+                correct: 1
+            },
+            {
+                id: 5, title: "Rahasia Tokoh", topic: "Tokoh & penokohan", type: "Matching",
+                desc: "Menganalisis karakteristik tokoh utama penjelajah dan utusan dewa.",
+                story: "Uria Mapas dan Uria Rinyan adalah dua bersaudara utusan titisan dari Alah Mula Munta yang memiliki kesaktian luar biasa dan paras yang tampan[cite: 16]. Uria Mapas sendiri sebelumnya memiliki nama asli sebagai Damung Lana[cite: 16].",
+                question: "Siapakah nama asli dari tokoh Uria Mapas sebelum ia lebih dikenal dengan sebutan Uria Mapas Negara?",
+                options: ["Damung Lana[cite: 16]", "Patih Nawaraha", "Sultan Suriansyah", "Risak bin Biuku"],
+                correct: 0
+            },
+            {
+                id: 6, title: "Jejak Alur", topic: "Alur & konflik", type: "Line Up",
+                desc: "Menelusuri hubungan sebab-akibat konflik antara Uria Rinyan dan Raja Mata Habang.",
+                story: "Konflik memuncak ketika kecurigaan Raja Mata Habang terhadap permaisuri Nyai Kemala dan Uria Rinyan berujung pada penjebakan serta pembunuhan para patih dan Uria Rinyan[cite: 16]. Peristiwa tragis ini memicu kemarahan besar di kalangan masyarakat Ma'anyan.",
+                question: "Apa peristiwa pemicu utama (komplikasi besar) yang membuat Uria Mapas bertekad melakukan balas dendam ke istana Raja?",
+                options: [
+                    "Pencurian hasil panen padi masyarakat Ma'anyan di Sangarasi",
+                    "Pembunuhan adik kesayangannya (Uria Rinyan) dan para patih oleh Raja Mata Habang[cite: 16]",
+                    "Penolakan Raja memberikan wilayah hutan di daerah Patai",
+                    "Penculikan Puteri Mayang ke gunung Tungka tanpa izin"
+                ],
+                correct: 1
+            },
+            {
+                id: 7, title: "Peta Dunia Cerita", topic: "Latar & sudut pandang", type: "Map Quiz",
+                desc: "Mengidentifikasi latar tempat autentik dalam kisah seperti Banua Lawas, Lantingen, Sangarasi, dan Nagara.",
+                story: "Perjalanan masyarakat Ma'anyan berpindah dari Banua Lawas, Lantingen, hingga menemukan besi besar berbentuk petir yang dinamakan Sangarasi ketika parang warga bersinggungan dengannya saat membersihkan hutan[cite: 16].",
+                question: "Mengapa suatu daerah dinamakan 'Sangarasi' oleh masyarakat Ma'anyan?",
+                options: [
+                    "Karena ditemukan banyak pohon sampaka berakar besar",
+                    "Karena parang warga bersinggungan dengan besi besar berbentuk seperti petir (nanyu sangar jatang) saat membersihkan hutan[cite: 16]",
+                    "Karena daerah tersebut dikelilingi oleh ribuan udang sungai yang melimpah",
+                    "Karena tempat tersebut merupakan pusat istana Raja Mata Habang"
+                ],
+                correct: 1
+            },
+            {
+                id: 8, title: "Makna di Balik Cerita", topic: "Tema, amanat & nilai budaya", type: "Quiz",
+                desc: "Menemukan nilai-nilai kearifan lokal, kepemimpinan, dan pelestarian budaya dalam mite.",
+                story: "Puteri Mayang Sari hidup di Sangarasi, memimpin rakyat dengan dekat, penuh kasih, serta memberikan penyuluhan pertanian dengan menganjurkan penduduk menanam padi di daerah berair demi memperkuat ketahanan pangan[cite: 16].",
+                question: "Nilai kearifan lokal apa yang tercermin dari kepemimpinan Puteri Mayang bersama Uria Mapas di Sangarasi?",
+                options: [
+                    "Kepemimpinan yang dekat dengan rakyat, mengutamakan kesejahteraan, dan memperkuat ketahanan pangan[cite: 16]",
+                    "Sikap tertutup dari dunia luar dan melarang adanya perdagangan dengan suku lain",
+                    "Pemisahan mutlak antara kaum bangsawan dan rakyat kecil di pedesaan",
+                    "Pengabaian terhadap tradisi leluhur demi mengejar modernisasi kota"
+                ],
+                correct: 0
+            },
+            {
+                id: 9, title: "Bahasa Sang Pencerita", topic: "Unsur kebahasaan narasi", type: "Fill in the Blanks",
+                desc: "Menganalisis penggunaan kaidah kebahasaan, konjungsi kronologis, dan kosakata lokal dalam teks.",
+                story: "Dalam teks narasi sejarah atau legenda, sering ditemukan kata-kata yang menyatakan urutan waktu atau kejadian masa lampau untuk merangkai alur cerita[cite: 16].",
+                question: "Manakah kelompok kata yang termasuk konjungsi antarkalimat penanda urutan waktu (kronologis) dalam teks narasi?",
+                options: [
+                    "Sangat, amat, lebih, paling",
+                    "Suatu ketika, keesokan harinya, selang beberapa waktu, kemudian[cite: 16]",
+                    "Karena, sebab, oleh karena itu, akibatnya",
+                    "Dan, serta, atau, tetapi"
+                ],
+                correct: 1
+            },
+            {
+                id: 10, title: "Final Challenge", topic: "Analisis cerita secara utuh", type: "Quiz",
+                desc: "Ujian akhir penjelajahan literasi: merefleksikan keseluruhan isi Mite Puteri Mayang dan pelestarian budaya.",
+                story: "Kisah diakhiri dengan wafatnya Puteri Mayang pada tahun 1615 dan Uria Mapas pada tahun 1628, di mana jasad Puteri Mayang diarak mengelilingi wilayah Ma'anyan selama 92 hari yang membawa kesuburan tanah dan kemakmuran bagi rakyat[cite: 16].",
+                question: "Apa makna simbolis dari prosesi jasad Puteri Mayang yang dibawa mengelilingi wilayah suku Ma'anyan selama 92 hari?",
+                options: [
+                    "Simbol kesuburan, kemakmuran, dan ikatan batin yang membawa berkah serta kesejahteraan bagi tanah dan rakyat Ma'anyan[cite: 16]",
+                    "Bentuk hukuman adat atas pelanggaran sumpah setia kepada kerajaan Banjar",
+                    "Syarat administratif pertanahan yang ditetapkan oleh para patih kerajaan",
+                    "Upacara pengusiran roh jahat akibat wabah penyakit menular di desa"
+                ],
+                correct: 0
             }
         ];
 
-        let currentUser = null;
-        let currentLevelIndex = 0;
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let userProgress = JSON.parse(localStorage.getItem('maanyan_progress')) || {};
+        let currentUser = { name: "", className: "", progress: 1, status: "Aktif Bermain" };
 
         function switchView(viewId) {
             document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
             document.getElementById(viewId).classList.add('active');
-            // Otomatis menggulir ke atas setiap kali berpindah room/tampilan
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function handleLogin() {
-            const usernameInput = document.getElementById('username').value.trim();
-            if (!usernameInput) {
-                alert('Silakan masukkan nama Anda terlebih dahulu!');
-                return;
-            }
-            currentUser = usernameInput;
-            if (!userProgress[currentUser]) {
-                userProgress[currentUser] = { unlockedLevel: 1, score: 0, completed: false };
-                saveData();
-            }
-            document.getElementById('player-greeting').innerText = `Halo, ${currentUser}!`;
-            
-            // Setelah login, arahkan ke halaman cerita terlebih dahulu sebelum masuk peta/soal
-            switchView('view-story');
-        }
+        function handleLogin(event) {
+            event.preventDefault();
+            currentUser.name = document.getElementById('student-name').value.trim();
+            currentUser.className = document.getElementById('student-class').value.trim();
+            currentUser.progress = 1;
+            currentUser.status = "Sedang Berproses";
 
-        function proceedToMap() {
+            document.getElementById('welcome-user-banner').innerText = `Selamat Datang, ${currentUser.name}!`;
+            document.getElementById('badge-user-info').innerText = `Kelas: ${currentUser.className}`;
+
+            syncDataToCloud();
             renderMap();
-            switchView('view-map');
+            switchView('view-dashboard');
         }
 
-        function showAdminLogin() {
-            const pass = prompt("Masukkan sandi admin/guru:");
-            if (pass === "admin123") {
-                renderLeaderboard();
+        function openAdminPanel() {
+            const pin = prompt("Masukkan Kata Sandi Admin / Guru:");
+            if (pin === "admin123" || pin === "guru") {
+                fetchAdminData();
                 switchView('view-admin');
-            } else if (pass !== null) {
-                alert("Sandi salah!");
+            } else if (pin !== null) {
+                alert("Kata sandi salah!");
             }
         }
 
-        function backToLogin() {
-            currentUser = null;
-            document.getElementById('username').value = '';
+        function logoutToLogin() {
+            document.getElementById('student-name').value = '';
+            document.getElementById('student-class').value = '';
             switchView('view-login');
         }
 
         function renderMap() {
-            const container = document.getElementById('map-grid-container');
-            container.innerHTML = '';
-            const pData = userProgress[currentUser] || { unlockedLevel: 1 };
+            const grid = document.getElementById('map-grid');
+            grid.innerHTML = '';
 
-            levelsData.forEach((lvl, index) => {
-                const isLocked = lvl.id > pData.unlockedLevel;
+            levels.forEach((lvl) => {
+                const isUnlocked = lvl.id <= currentUser.progress;
                 const card = document.createElement('div');
-                card.className = `level-card ${isLocked ? 'locked' : ''}`;
+                card.className = `level-card ${isUnlocked ? '' : 'locked'}`;
+                
                 card.innerHTML = `
                     <div>
                         <div class="level-header">
                             <div class="level-number">${lvl.id}</div>
-                            <span class="level-badge">${lvl.badge}</span>
+                            <div class="level-badge">${lvl.type}</div>
                         </div>
-                        <div class="level-title">${lvl.title}</div>
-                        <div class="level-desc">${lvl.desc}</div>
+                        <h3 class="level-title">${lvl.title}</h3>
+                        <p class="level-desc"><strong>Topik:</strong> ${lvl.topic}<br>${lvl.desc}</p>
                     </div>
-                    <div style="font-size: 0.8rem; font-weight: bold; color: ${isLocked ? '#999' : 'var(--secondary)'};">
-                        ${isLocked ? '🔒 Terkunci' : '▶ Mainkan'}
-                    </div>
+                    <button class="btn" onclick="startLevel(${lvl.id})" ${isUnlocked ? '' : 'disabled'}>
+                        ${lvl.id < currentUser.progress ? 'Selesai (Ulangi)' : (isUnlocked ? 'Mulai Tantangan' : 'Terkunci 🔒')}
+                    </button>
                 `;
-                if (!isLocked) {
-                    card.onclick = () => startLevel(index);
-                }
-                container.appendChild(card);
+                grid.appendChild(card);
             });
         }
 
-        function startLevel(index) {
-            currentLevelIndex = index;
-            currentQuestionIndex = 0;
-            score = 0;
-            loadQuestion();
-            switchView('view-game');
-        }
+        function startLevel(id) {
+            const lvl = levels.find(l => l.id === id);
+            if (!lvl) return;
 
-        function loadQuestion() {
-            const level = levelsData[currentLevelIndex];
-            const qObj = level.questions[currentQuestionIndex];
+            switchView('view-arena');
+            document.getElementById('arena-level-badge').innerText = `Level ${lvl.id} - ${lvl.type}`;
+            document.getElementById('arena-title').innerText = lvl.title;
 
-            document.getElementById('level-indicator').innerText = `Level ${level.id}: ${level.title}`;
-            document.getElementById('story-snippet-box').innerText = `"${level.story}"`;
-            document.getElementById('question-text').innerText = `${currentQuestionIndex + 1}. ${qObj.q}`;
-            
+            const arenaContent = document.getElementById('arena-content');
+            arenaContent.innerHTML = `
+                <div class="story-snippet">
+                    <strong>📖 Konteks & Cerita Dayak Maanyan:</strong><br>
+                    ${lvl.story}
+                </div>
+                <div class="question-box">
+                    <strong>Tantangan Analisis:</strong><br>
+                    ${lvl.question}
+                </div>
+                <div class="options-container" id="options-box"></div>
+                <div id="feedback-msg"></div>
+                <button id="next-btn" class="btn" style="display:none; width:100%; margin-top: 15px;" onclick="nextLevel(${lvl.id})">Lanjut ke Wilayah Berikutnya →</button>
+            `;
+
             const optionsBox = document.getElementById('options-box');
-            optionsBox.innerHTML = '';
-            document.getElementById('feedback-msg').innerText = '';
-            document.getElementById('next-question-btn').style.display = 'none';
-
-            qObj.options.forEach((opt, idx) => {
+            lvl.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
-                btn.innerText = opt;
-                btn.onclick = () => checkAnswer(idx, qObj.answer);
+                btn.innerText = `${String.fromCharCode(65 + idx)}. ${opt}`;
+                btn.onclick = () => checkAnswer(idx, lvl.correct, lvl.id);
                 optionsBox.appendChild(btn);
             });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function checkAnswer(selectedIdx, correctIdx) {
-            const options = document.querySelectorAll('.option-btn');
-            options.forEach((btn, idx) => {
+        function checkAnswer(selectedIndex, correctIndex, levelId) {
+            const optionButtons = document.querySelectorAll('.option-btn');
+            const feedback = document.getElementById('feedback-msg');
+            const nextBtn = document.getElementById('next-btn');
+
+            optionButtons.forEach((btn, idx) => {
                 btn.disabled = true;
-                if (idx === correctIdx) btn.classList.add('correct');
-                if (idx === selectedIdx && idx !== correctIdx) btn.classList.add('wrong');
+                if (idx === correctIndex) btn.classList.add('correct');
+                else if (idx === selectedIndex) btn.classList.add('wrong');
             });
 
-            const feedback = document.getElementById('feedback-msg');
-            if (selectedIdx === correctIdx) {
+            if (selectedIndex === correctIndex) {
                 feedback.style.color = '#28a745';
-                feedback.innerText = 'Benar! Jawaban Anda tepat.';
-                score += 50;
+                feedback.innerText = '🎉 Luar biasa! Jawaban benar.';
+                
+                if (levelId === currentUser.progress && currentUser.progress < levels.length) {
+                    currentUser.progress++;
+                }
+                if (currentUser.progress === levels.length && levelId === levels.length) {
+                    currentUser.status = "Tuntas (Selesai)";
+                }
+                syncDataToCloud();
+                nextBtn.style.display = 'block';
             } else {
                 feedback.style.color = '#dc3545';
-                feedback.innerText = 'Kurang tepat. Pelajari lagi nilai kearifan lokalnya.';
+                feedback.innerText = '❌ Kurang tepat. Coba lagi!';
+                setTimeout(() => { startLevel(levelId); }, 2000);
             }
+        }
 
-            const level = levelsData[currentLevelIndex];
-            if (currentQuestionIndex < level.questions.length - 1) {
-                const nextBtn = document.getElementById('next-question-btn');
-                nextBtn.innerText = 'Lanjut Pertanyaan Berikutnya';
-                nextBtn.style.display = 'block';
+        function nextLevel(currentId) {
+            if (currentId < levels.length) {
+                startLevel(currentId + 1);
             } else {
-                const nextBtn = document.getElementById('next-question-btn');
-                nextBtn.innerText = 'Selesaikan Level Ini';
-                nextBtn.style.display = 'block';
+                returnToDashboard();
+                alert('🏆 Selamat! Anda menuntaskan seluruh petualangan!');
             }
         }
 
-        function nextQuestion() {
-            const level = levelsData[currentLevelIndex];
-            currentQuestionIndex++;
-            if (currentQuestionIndex < level.questions.length) {
-                loadQuestion();
-            } else {
-                finishLevel();
-            }
-        }
-
-        function finishLevel() {
-            const pData = userProgress[currentUser];
-            pData.score = (pData.score || 0) + score;
-            
-            if (currentLevelIndex + 1 >= pData.unlockedLevel && currentLevelIndex + 1 < levelsData.length) {
-                pData.unlockedLevel = currentLevelIndex + 2;
-            } else if (currentLevelIndex + 1 === levelsData.length) {
-                pData.completed = true;
-            }
-            saveData();
-            alert(`Selamat! Anda telah menyelesaikan level ini.\nSkor yang diperoleh: ${score}`);
+        function returnToDashboard() {
+            switchView('view-dashboard');
             renderMap();
-            switchView('view-map');
         }
 
-        function backToMap() {
-            renderMap();
-            switchView('view-map');
-        }
+        function syncDataToCloud() {
+            const payload = {
+                name: currentUser.name,
+                className: currentUser.className,
+                progress: `Level ${currentUser.progress} / 10`,
+                status: currentUser.status
+            };
 
-        function saveData() {
-            localStorage.setItem('maanyan_progress', JSON.stringify(userProgress));
-        }
+            document.getElementById('sync-status').innerText = "Status Cloud: Menyinkronkan...";
 
-        function renderLeaderboard() {
-            const tbody = document.getElementById('leaderboard-body');
-            tbody.innerHTML = '';
-            const keys = Object.keys(userProgress);
-
-            if (keys.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #888;">Belum ada data siswa.</td></tr>`;
-                return;
-            }
-
-            keys.forEach((user, idx) => {
-                const data = userProgress[user];
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${idx + 1}</td>
-                    <td>${user}</td>
-                    <td>Level ${data.unlockedLevel} ${data.completed ? '(Selesai)' : ''}</td>
-                    <td><b>${data.score || 0}</b></td>
-                    <td>${new Date().toLocaleDateString()}</td>
-                `;
-                tbody.appendChild(tr);
+            fetch(API_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                document.getElementById('sync-status').innerText = "Status Cloud: Terhubung & Data Tersimpan";
+            }).catch(err => {
+                document.getElementById('sync-status').innerText = "Status Cloud: Gagal Menyimpan";
             });
         }
 
-        function exportData() {
-            let csv = "No,Nama Siswa,Level,Skor\n";
-            Object.keys(userProgress).forEach((user, idx) => {
-                const d = userProgress[user];
-                csv += `${idx + 1},"${user}",${d.unlockedLevel},${d.score || 0}\n`;
-            });
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.setAttribute('href', url);
-            a.setAttribute('download', 'laporan_progres_siswa.csv');
-            a.click();
-        }
+        function fetchAdminData() {
+            const tbody = document.getElementById('admin-table-body');
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#777;">Memuat data terbaru dari Google Spreadsheet...</td></tr>`;
 
-        function resetData() {
-            if (confirm("Yakin ingin menghapus seluruh data progres siswa?")) {
-                localStorage.removeItem('maanyan_progress');
-                userProgress = {};
-                renderLeaderboard();
-                alert("Data berhasil direset.");
-            }
+            fetch(API_URL)
+                .then(res => res.json())
+                .then(data => {
+                    tbody.innerHTML = '';
+                    if (!data || data.length === 0) {
+                        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#777;">Belum ada data siswa yang masuk.</td></tr>`;
+                        return;
+                    }
+
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${row.time || '-'}</td>
+                            <td>${row.name || '-'}</td>
+                            <td>${row.className || '-'}</td>
+                            <td>${row.progress || '-'}</td>
+                            <td><span style="color: ${String(row.status).includes('Tuntas') ? 'green' : 'orange'}; font-weight:bold;">${row.status || '-'}</span></td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(err => {
+                    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:red;">Gagal memuat data dari cloud. Pastikan URL Apps Script aktif.</td></tr>`;
+                });
         }
     </script>
 </body>
